@@ -56,10 +56,6 @@ Tipagens com TypeScript.
 @types para integração com bibliotecas.
 
 ## 👨‍💻 Desenvolvido por:
-- Thiago Felipe Telma
-- Jackeline Paola Martins
 - Gustavo Mascarenhas
 - Thiago Torá Frazão Martins
-- Felipe Roberto Domingos Leite
-- Tamires de Sousa Martins
-- Matheus de Souza Melo
+- Matheus de Souza Calistro
