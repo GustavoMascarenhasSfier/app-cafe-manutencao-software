@@ -54,7 +54,7 @@ const Home: React.FC = () => {
                         <p>
                             Descubra os melhores cafés, suas origens, métodos de{" "}
                             <br />
-                            preparo e dicas para apreciar cada xícara ao máximo.
+                            preparo e dicas para apreciar cada xícara ao máximo.ddddddddddddddddd
                         </p>
                     </header>
                 </section>
