@@ -1,0 +1,112 @@
+:root {
+    --bege-100: #f8f4ef;
+    --bege-150: #f3e9dd;
+    --bege-200: #f0e0ce;
+    --bege-250: #e4caac;
+    --amarelo-250: #f3c300;
+    --yellow-100: #f1e9c9;
+    --yellow-300: #dbac2c;
+    --yellow-500: #c47f17;
+    --white: #fff;
+    --brown-cafe: #6b4e2f;
+    --brown: #3b2f2f;
+    --pretinho: #2d2d2d;
+}
+
+.MainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.FormContainer {
+    border: 1px solid var(--bege-200);
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--bege-100);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--brown-cafe);
+}
+
+.TittlePlace {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.TittlePlace h1 {
+    color: var(--brown);
+}
+
+.TittlePlace span {
+    color: var(--brown-cafe);
+}
+
+.ContatoForm input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    border: 1px solid var(--bege-250);
+    background-color: var(--bege-100);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.ContatoForm input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    border: 1px solid var(--bege-250);
+    background-color: var(--bege-150);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.ContatoForm input:focus {
+    outline: none;
+    border: 1px solid var(--bege-250);
+    background-color: var(--bege-200);
+}
+
+#mensagem {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.75rem;
+    border-radius: 6px;
+    color: var(--brown);
+    border: 1px solid var(--bege-250);
+    background-color: var(--bege-150);
+    font-size: 1rem;
+    box-sizing: border-box;
+
+    resize: vertical;
+    overflow-wrap: break-word;
+}
+
+#mensagem:focus {
+    outline: none;
+    border: 1px solid var(--bege-250);
+    background-color: var(--bege-200);
+}
+
+textarea::placeholder {
+    color: var(--brown-cafe);
+}
+
+.ContatoForm label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: var(--brown);
+}
+
+.ContatoForm div {
+    margin-bottom: 20px;
+}
+
+.Message-Container {
+    text-align: center;
+}
