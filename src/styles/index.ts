@@ -1,26 +1,25 @@
+// src/styles/index.ts
 import { createStitches } from "@stitches/react";
 
-export const { styled, css, globalCss, theme } = createStitches({
+export const { styled, css, globalCss, theme, config } = createStitches({
   theme: {
     colors: {
       white: "#ffffff",
       black: "#000000",
 
-      gray100: "#f8f4ef",
-      gray900: "#2d2d2d",
+      gray100: "#f8f4ef", // antes: bege-claro
+      gray900: "#2d2d2d", // antes: preto-fosco
 
-      brown900: "#3b2f2f",
-      brown700: "#6b4e2f",
+      brown900: "#3b2f2f", // antes: marrom-escuro
+      brown700: "#6b4e2f", // antes: marrom-cafe
 
-      yellow300: "#fadd6a",
-      yellow500: "#f3c300",
+      yellow500: "#f3c300", // antes: amarelo-mostarda
 
       gold100: "#E8C07A",
       gold200: "#C99B4E",
       gold300: "rgba(201, 155, 78, 0.3)",
       gold400: "rgba(201, 155, 78, 0.12)",
     },
-
     fontSizes: {
       xxs: "0.625rem",
       xs: "0.75rem",
@@ -36,5 +35,12 @@ export const { styled, css, globalCss, theme } = createStitches({
       "8xl": "4.5rem",
       "9xl": "6rem",
     },
+  },
+});
+
+export const globalStyles = globalCss({
+  body: {
+    backgroundColor: "$gray900",
+    color: "$gray100",
   },
 });
