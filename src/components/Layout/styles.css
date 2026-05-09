@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Edu+QLD+Hand:wght@400..700&display=swap');
 
-
+.SvgCart svg{
+  margin-top: 20px;
+  width: 20px;
+  height: auto;
+}
 .page-layout {
   min-height: 100vh;
   background-color: #f8f4ef;
@@ -8,4 +12,81 @@
   flex-direction: column;
 }
 
+.page-header {
+  background-color: #4b2e1f;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
 
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#logo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#logo-text {
+  font-size: 20px;
+  font-family: 'Edu QLD Hand', cursive;
+  color: #f3e9dc;
+  margin: 0;
+}
+
+.page-menu {
+  flex: 1;
+  justify-content: flex-end;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+/* Estado selecionado do menu - força sobre Ant Design */
+.page-menu .ant-menu-item-selected,
+.page-menu .active,
+.page-menu a.active,
+.page-menu .selected,
+.page-menu a.selected {
+  background: #F3C300 !important;
+  color: #222 !important;
+  border-radius: 0.5em !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+
+.page-footer {
+  text-align: center;
+  background-color: #e7e6e6;
+  padding: 1rem;
+  font-size: 14px;
+  color: #3B2F2F;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 12px 16px;
+  }
+
+  #logo-text {
+    font-size: 16px !important;
+    display: block !important;
+    color: #f3e9dc !important;
+    margin: 0 !important;
+    font-family: 'Edu QLD Hand', cursive !important;
+  }
+
+  .page-menu {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}

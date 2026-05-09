@@ -1,0 +1,622 @@
+/* Fontes */
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+
+/* Paleta Café */
+:root {
+    --marrom-escuro: #3b2f2f;
+    --bege-claro: #f8f4ef;
+    --amarelo-mostarda: #f3c300;
+    --marrom-cafe: #6b4e2f;
+    --preto-fosco: #2d2d2d;
+    --branco-puro: #ffffff;
+    --sombra: 0 4px 24px 0 #3b2f2f22;
+}
+
+/* Reset e base */
+.home-main body {
+    background: var(--bege-claro);
+    font-family: "Roboto", Arial, sans-serif;
+    color: var(--marrom-cafe);
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.home-main a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.home-main a:hover {
+    color: var(--amarelo-mostarda);
+}
+
+.home-main h1,
+.home-main h2,
+.home-main h3 {
+    margin: 0 0 0.5em 0;
+    font-weight: 700;
+    text-align: center;
+}
+.home-main h1 {
+    font-family: "Audiowide", cursive;
+    font-size: 3em;
+    color: #000;
+    text-shadow: 2px 2px 8px #fff;
+}
+.home-main h2 {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 2em;
+    color: var(--marrom-escuro);
+}
+.home-main h3 {
+    font-size: 1.3em;
+}
+
+.home-main p,
+.home-main ul,
+.home-main li {
+    font-family: "Share Tech Mono", monospace;
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0 auto 1em auto;
+    max-width: 700px;
+}
+
+.home-main main {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Parallax header */
+#home-header {
+    background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(59, 47, 47, 0.7)),
+        url("../../assets/BaristaBanner.png") center/cover fixed no-repeat;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    box-shadow: var(--sombra);
+    position: relative;
+    border-radius: 30px;
+}
+#home-header h1 {
+    color: #000;
+    text-shadow: 2px 2px 12px #fff, 0 1px 0 #fff;
+    font-size: 7em;
+}
+#home-header p {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 2em;
+    text-shadow: 1px 1px 8px #3b2f2f;
+}
+
+/* Destaques */
+#home-featured {
+    background: #fff;
+    border-radius: 1.2em;
+    box-shadow: var(--sombra);
+    margin: 2em auto;
+    padding: 2em 1em;
+    max-width: 1100px;
+}
+.home-featured-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.home-featured-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    width: 100%;
+}
+.home-featured-card {
+    background: var(--bege-claro);
+    border-radius: 1em;
+    box-shadow: 0 2px 12px 0 #3b2f2f22;
+    padding: 2em 1.5em 1.5em 1.5em;
+    min-width: 220px;
+    max-width: 300px;
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.home-featured-card:hover {
+    box-shadow: 0 8px 32px 0 #3b2f2f33;
+    transform: translateY(-6px) scale(1.03);
+}
+.home-featured-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 1em;
+    filter: drop-shadow(0 2px 8px #3b2f2f22);
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px #3b2f2f22;
+}
+.home-featured-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+/* Dicas e Delivery */
+#home-tips-delivery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    max-width: 1100px;
+    margin: 2em auto;
+    padding: 2em 1em;
+    background: #fff;
+    border-radius: 1.2em;
+    box-shadow: var(--sombra);
+    justify-content: center;
+    align-items: center;
+}
+.home-tips-delivery-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    text-align: center;
+    width: 100%;
+}
+
+/* home-tips e home-delivery com mesmo tamanho em telas grandes */
+.home-tips-delivery-content {
+    align-items: stretch;
+}
+
+.home-tips,
+.home-delivery {
+    flex: 1 1 0;
+    max-width: 480px;
+    min-width: 220px;
+    margin: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--bege-claro);
+    border-radius: 1em;
+    box-shadow: 0 8px 32px 0 #3b2f2f77, 0 2px 12px 0 #f3c30055;
+    padding: 2em 1.5em;
+    transition: box-shadow 0.2s;
+    text-align: center;
+    /* Remove height/min-height para se adaptar ao maior conteúdo */
+}
+
+/* Garante alturas iguais usando grid para o container (opcional, mais robusto) */
+@media (min-width: 901px) {
+    .home-tips-delivery-content {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+        align-items: stretch;
+    }
+    .home-tips,
+    .home-delivery {
+        height: 100%;
+    }
+}
+
+/* Corrige empilhamento das colunas em telas pequenas */
+@media (max-width: 900px) {
+    .home-tips-delivery-content {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1.2em;
+        width: 100%;
+    }
+    .home-tips,
+    .home-delivery {
+        max-width: 100%;
+        min-width: 0;
+        width: 100%;
+        margin: 0;
+        padding: 1em 0.5em;
+        height: auto;
+    }
+    .home-tips-content,
+    .home-delivery-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* Para telas muito pequenas, reduz ainda mais o padding */
+@media (max-width: 600px) {
+    .home-tips,
+    .home-delivery {
+        padding: 0.7em 0.2em;
+    }
+}
+
+/* Menu */
+#home-menu {
+    background: #fff;
+    border-radius: 1.2em;
+    box-shadow: var(--sombra);
+    margin: 2em auto;
+    padding: 2em 1em;
+    max-width: 900px;
+}
+.home-menu-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    width: 100%;
+    gap: 2em;
+}
+
+/* Centraliza a lista de itens do menu horizontalmente */
+.home-menu-list {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.home-menu-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+}
+.home-menu-list li a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.1em;
+    background: var(--bege-claro);
+    border-radius: 0.7em;
+    padding: 0.7em 1.2em;
+    box-shadow: 0 2px 8px #3b2f2f11;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.home-menu-list li a:hover {
+    background: var(--marrom-cafe);
+    color: #ffffff;
+    box-shadow: 0 4px 16px #3b2f2f22;
+}
+.home-menu-icon {
+    font-size: 1.5em;
+    color: var(--amarelo-mostarda);
+    min-width: 32px;
+    min-height: 32px;
+}
+
+/* Footer */
+#home-footer {
+    background: var(--marrom-escuro);
+    color: #fff;
+    padding: 3em 1em 2em 1em;
+    text-align: center;
+    box-shadow: 0 -2px 12px #3b2f2f22;
+}
+.home-footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-bottom: 1.5em;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+}
+.home-footer-icons a {
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.5em;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1.5em;
+    transition: background 0.2s, color 0.2s;
+}
+.home-footer-icons a:hover {
+    background: var(--amarelo-mostarda);
+    color: #ffffff;
+}
+.home-footer-menu {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+    font-size: 0.95em;
+    margin-top: 1em;
+}
+
+/* Botões */
+.button,
+.button.home-featured-button,
+.button.home-delivery-button {
+    display: inline-block;
+    background: var(--amarelo-mostarda);
+    color: var(--marrom-escuro);
+    padding: 0.8em 2em;
+    border-radius: 0.5em;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 1em auto 0 auto;
+    box-shadow: 0 2px 8px #3b2f2f22;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    text-align: center;
+    min-width: 180px;
+}
+
+.button:hover,
+.button.home-featured-button:hover,
+.button.home-delivery-button:hover {
+    background: var(--marrom-escuro);
+    color: #fff;
+    box-shadow: 0 4px 16px #3b2f2f33;
+}
+
+/* Imagens responsivas e simples */
+img,
+.image,
+.banner-img-custom,
+.home-menu-banner-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1em;
+}
+
+/* Imagens menores para home-tips e home-delivery, centralizadas e um pouco maiores */
+.home-tips-img,
+.home-delivery-img {
+    width: 64px;
+    height: 64px;
+    max-width: 64px;
+    max-height: 64px;
+    object-fit: contain;
+    margin: 1.2em auto 0 auto;
+    display: block;
+    border-radius: 0.7em;
+    box-shadow: 0 2px 10px #3b2f2f33;
+    opacity: 0.9;
+}
+
+.home-delivery-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+.home-delivery-images img {
+    width: 64px;
+    height: 64px;
+    max-width: 64px;
+    max-height: 64px;
+    margin: 0;
+    display: block;
+}
+
+/* Responsivo: mantém centralizado e ajusta tamanho no mobile */
+@media (max-width: 600px) {
+    .home-tips-img,
+    .home-delivery-img,
+    .home-delivery-images img {
+        width: 48px;
+        height: 48px;
+        max-width: 48px;
+        max-height: 48px;
+    }
+    h1 {
+        font-size: 2em !important;
+    }
+    h2 {
+        font-size: 1.3em !important;
+    }
+    p,
+    ul,
+    li {
+        font-size: 1em !important;
+    }
+}
+
+/* Responsividade geral */
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+    #home-header {
+        padding: 3em 1em 2em 1em;
+        min-height: 40vh;
+    }
+    #home-featured,
+    #home-tips-delivery,
+    #home-menu {
+        padding: 1em 0.5em;
+    }
+    .home-featured-cards,
+    #home-tips-delivery {
+        flex-direction: column;
+        gap: 1em;
+    }
+    .home-menu-list ul {
+        flex-direction: column;
+        gap: 1em;
+    }
+    .home-delivery-images {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 1em;
+    }
+    #home-header {
+        padding: 2em 0.5em 1em 0.5em;
+    }
+    .home-featured-card,
+    .home-tips,
+    .home-delivery {
+        padding: 1em 0.5em;
+    }
+    .home-menu-list li a {
+        padding: 0.5em 0.7em;
+        font-size: 1em;
+    }
+    .home-footer-menu {
+        gap: 0.5em;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-featured-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+    .home-featured-footer {
+        margin-top: 1.5em;
+    }
+    .home-featured-header h2 {
+        font-size: 2em;
+    }
+    .home-featured-header p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-featured-header h2 {
+        font-size: 1.5em;
+    }
+    .home-featured-header p {
+        font-size: 0.95em;
+    }
+}
+
+/* Ajuste para garantir altura mínima e evitar vazamento no mobile */
+.home-tips,
+.home-delivery {
+    box-sizing: border-box;
+    flex: 1 1 320px;
+    max-width: 480px;
+    min-width: 220px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center;
+    background: var(--bege-claro);
+    border-radius: 1em;
+    box-shadow: 0 8px 32px 0 #3b2f2f77, 0 2px 12px 0 #f3c30055;
+    padding: 2em 1.5em;
+    transition: box-shadow 0.2s;
+    overflow: visible;
+    text-align: center; /* Garante centralização do texto */
+}
+
+/* Ajuste para home-tips e home-delivery no mobile: largura total, padding menor, sem altura fixa */
+@media (max-width: 900px) {
+    .home-tips-delivery-content {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1.2em;
+        width: 100%;
+    }
+    .home-tips,
+    .home-delivery {
+        max-width: 100%;
+        min-width: 0;
+        width: 100%;
+        margin: 0;
+        padding: 1em 0.5em;
+        box-sizing: border-box;
+        min-height: unset;
+        height: auto;
+    }
+    .home-tips-content,
+    .home-delivery-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* Para celular: 2 ícones por linha, imagem do menu abaixo dos ícones */
+@media (max-width: 600px) {
+    .home-menu-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .home-menu-list ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+        justify-items: center;
+        align-items: start;
+        width: 100%;
+    }
+    .home-menu-image {
+        width: 100%;
+        margin-top: 1.5em;
+        order: 2; /* Garante que a imagem venha depois dos ícones */
+        display: flex;
+        justify-content: center;
+        grid-column: 1 / -1;
+    }
+    /* Centraliza o último item se for ímpar */
+    .home-menu-list ul li:only-child,
+    .home-menu-list ul li:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+}
+
+/* Footer: ícones em linha em telas grandes, empilhados no mobile */
+.home-footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-bottom: 1.5em;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 600px) {
+    .home-footer-icons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+}
