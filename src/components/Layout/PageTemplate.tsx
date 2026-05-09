@@ -8,19 +8,10 @@ import capuccino from "../../assets/Cafes/Capuccino.svg";
 import "./styles.css";
 import { ShoppingCart } from "phosphor-react";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const items = [
-    { key: "home", label: <Link to="/">Home</Link> },
-    { key: "loja", label: <Link to="/loja">Loja</Link> },
-    { key: "sobre-nos", label: <Link to="/sobre-nos">Sobre</Link> },
-    { key: "tutorial", label: <Link to="/tutorial">Faça Você Mesmo</Link> },
-    {
-        key: "franqueado",
-        label: <Link to="/franqueado">Seja um Franqueado</Link>,
-    },
-    { key: "contato", label: <Link to="/contato">Contato</Link> },
-    {
+  {
         key: "carrinho",
         label: (
             <Link className="SvgCart" to="/checkout">
@@ -41,32 +32,23 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
 
     // Detecta a rota atual para selecionar o menu
     const location = useLocation();
-    const currentPath = location.pathname.split("/")[1] || "home";
+    const currentPath = location.pathname.split("/")[1] || "Loja";
 
     return (
         <Layout className="page-layout">
             <Header
                 className="page-header"
-                style={{
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 100,
-                    width: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                }}
             >
                 <div className="logo-placeholder">
                     <img id="logo" src={capuccino} alt="Logo" />
-                    <h1 id="logo-text">A SUA CAFETERIA TECH</h1>
+                    <h1 id="logo-text">Expresso Delivery</h1>
                 </div>
                 <Menu
                     theme="dark"
                     mode="horizontal"
                     selectedKeys={[currentPath]}
                     items={items}
-                    className="page-menu"
+                    className="page-carrinho"
                     style={{ flex: 1 }}
                 />
             </Header>
@@ -84,9 +66,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
                 </div>
             </Content>
 
-            <Footer className="page-footer" style={{ textAlign: "center" }}>
-                Café do Seu Jeito ©{new Date().getFullYear()}
-            </Footer>
+           
         </Layout>
     );
 };
