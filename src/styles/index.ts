@@ -6,13 +6,19 @@ export const { styled, css, theme } = createStitches({
       white: "#ffffff",
       black: "#000000",
 
-      gray100: "#f8f4ef",
+      bege100: "#f8f4ef",
+      bege150: "#f3e9dd",
+      bege200: "#f0e0ce",
+
       gray900: "#2d2d2d",
 
       brown900: "#3b2f2f",
-      brown700: "#6b4e2f",
+      brown500: "#6b4e2f", //brownCafe
 
-      yellow500: "#f3c300",
+      yellow100: "#f1e9c9",
+      yellow200: "#dbac2c",
+      yellow300: "#f3c300",
+      yellow500: "#c47f17",
 
       gold100: "#E8C07A",
       gold200: "#C99B4E",
