@@ -42,4 +42,10 @@ export const { styled, css, theme } = createStitches({
       "9xl": "6rem",
     },
   },
+  media: {
+    sm: "(max-width: 480px)",
+    md: "(max-width: 764px)",
+    lg: "(max-width: 1024px)",
+    xl: "(max-width: 1200px)",
+  },
 });
