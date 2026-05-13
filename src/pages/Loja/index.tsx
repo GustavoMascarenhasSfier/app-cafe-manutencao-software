@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import PageTemplate from "../../components/Layout/PageTemplate";
-import "./styles.css";
 import CoffeeLogo from "../../assets/CoffeeLogo.svg";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { cafes } from "../../components/CardCafes/CatalogCoffee";
 import {
   Benefits,
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardsContainer,
+  CartButton,
   Container,
+  Descricao,
   Description,
   DescriptionContainer,
   IconContainer,
+  LojaContainer,
+  Price,
+  QuantityButton,
+  Tag,
+  TagGroup,
+  Title,
 } from "./styles";
 
 interface Cafe {
@@ -108,52 +120,49 @@ const Loja: React.FC = () => {
           <img src={CoffeeLogo} alt="Logo do Café" />
         </DescriptionContainer>
 
-        <div className="loja-container">
+        <LojaContainer>
           <h1>Nossos Cafés</h1>
-          <div className="cards">
+          <CardsContainer>
             {cafes.map((cafe) => (
-              <div className="card" key={cafe.id}>
-                <div className="img-and-tag-local">
+              <Card key={cafe.id}>
+                <CardHeader>
                   <img src={cafe.imagem} alt={cafe.nome} />
-                  <div className="tag-group">
+                  <TagGroup>
                     {cafe.tags.map((tag, i) => (
-                      <span className="tag" key={i}>
-                        {tag}
-                      </span>
+                      <Tag key={i}>{tag}</Tag>
                     ))}
-                  </div>
-                </div>
+                  </TagGroup>
+                </CardHeader>
 
-                <div className="description-card-local">
-                  <h3 className="title">{cafe.nome}</h3>
-                  <p className="descricao-coffee">{cafe.descricao}</p>
-                </div>
+                <CardContent>
+                  <Title>{cafe.nome}</Title>
+                  <Descricao>{cafe.descricao}</Descricao>
+                </CardContent>
 
-                <div className="buy-local">
-                  <div className="price">
+                <CardFooter>
+                  <Price>
                     <strong>{cafe.preco.toFixed(2)}</strong>
-                  </div>
+                  </Price>
 
-                  <div className="botao-quantidade">
+                  <QuantityButton>
                     <button onClick={() => decrement(cafe.id)}>-</button>
-                    <span>{quantidades[cafe.id] ?? 0}</span>
-                    <button onClick={() => increment(cafe.id)}>+</button>
-                  </div>
 
-                  <div className="cart-button-container">
-                    <button
-                      className="cart-button"
-                      onClick={() => handleAdicionar(cafe)}
-                      aria-label={`Adicionar ${cafe.nome} ao carrinho`}
-                    >
-                      <ShoppingCart weight="fill" size={18} />
-                    </button>
-                  </div>
-                </div>
-              </div>
+                    <span>{quantidades[cafe.id] ?? 0}</span>
+
+                    <button onClick={() => increment(cafe.id)}>+</button>
+                  </QuantityButton>
+
+                  <CartButton
+                    onClick={() => handleAdicionar(cafe)}
+                    aria-label={`Adicionar ${cafe.nome} ao carrinho`}
+                  >
+                    <ShoppingCart weight="fill" size={18} />
+                  </CartButton>
+                </CardFooter>
+              </Card>
             ))}
-          </div>
-        </div>
+          </CardsContainer>
+        </LojaContainer>
       </Container>
     </PageTemplate>
   );
