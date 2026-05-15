@@ -40,7 +40,7 @@ const Header = ({ busca, setBusca }: HeaderProps) => {
             onChange={(e) => setBusca(e.target.value)}
           />
 
-          <S.SearchButton>
+          <S.SearchButton onClick={() => console.log(busca)}>
             <SearchOutlined />
           </S.SearchButton>
         </S.SearchContainer>
