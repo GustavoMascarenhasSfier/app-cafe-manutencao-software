@@ -8,22 +8,28 @@ import * as S from "./styles";
 
 interface HeaderProps {
   busca: string;
-
   setBusca: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Header = ({ busca, setBusca }: HeaderProps) => {
   return (
-
     <S.PageHeader>
-       <Link to="/" style={{ display: "flex", alignItems: "center" , gap:10 , textDecoration: "none"}}>
-      <S.LogoPlaceholder>
-        <S.LogoIcon src={capuccino} alt="Logo" />
+      <Link
+        to="/"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          textDecoration: "none",
+        }}
+      >
+        <S.LogoPlaceholder>
+          <S.LogoIcon src={capuccino} alt="Logo" />
 
-        <S.LogoText>
-          Expresso <span>Delivery</span>
-        </S.LogoText>
-      </S.LogoPlaceholder>
+          <S.LogoText>
+            Expresso <span>Delivery</span>
+          </S.LogoText>
+        </S.LogoPlaceholder>
       </Link>
 
       <S.SearchWrapper>
