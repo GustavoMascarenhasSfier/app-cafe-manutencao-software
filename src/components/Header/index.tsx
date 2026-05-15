@@ -14,7 +14,9 @@ interface HeaderProps {
 
 const Header = ({ busca, setBusca }: HeaderProps) => {
   return (
+
     <S.PageHeader>
+       <Link to="/" style={{ display: "flex", alignItems: "center" , gap:10 , textDecoration: "none"}}>
       <S.LogoPlaceholder>
         <S.LogoIcon src={capuccino} alt="Logo" />
 
@@ -22,6 +24,7 @@ const Header = ({ busca, setBusca }: HeaderProps) => {
           Expresso <span>Delivery</span>
         </S.LogoText>
       </S.LogoPlaceholder>
+      </Link>
 
       <S.SearchWrapper>
         <S.SearchContainer>
