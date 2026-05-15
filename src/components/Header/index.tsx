@@ -10,10 +10,10 @@ const Header = () => {
 
   return (
     <S.PageHeader>
-      <S.LogoPlaceholder>
+      <Link to="/" style={{ display: "flex", alignItems: "center" , gap:10 , textDecoration: "none"}}>
         <S.LogoIcon src={capuccino} alt="Logo" />
         <S.LogoText>Expresso <span>Delivery</span></S.LogoText>
-      </S.LogoPlaceholder>
+      </Link>
 
       <S.SearchContainer>
         <S.SearchInput
