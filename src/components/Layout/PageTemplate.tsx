@@ -1,26 +1,34 @@
 import Layout from "antd/es/layout";
 import theme from "antd/es/theme";
 
-import Header from "../Header"; // ajuste o caminho se precisar
+import Header from "../Header";
 
 const { Content } = Layout;
 
 interface PageTemplateProps {
   children: React.ReactNode;
+
+  busca: string;
+
+  setBusca: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
+const PageTemplate = ({
+  children,
+  busca,
+  setBusca,
+}: PageTemplateProps) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
     <Layout className="page-layout">
+      <Header
+        busca={busca}
+        setBusca={setBusca}
+      />
 
-      {/* HEADER SEPARADO */}
-      <Header />
-
-      {/* CONTEÚDO */}
       <Content style={{ padding: "24px" }}>
         <div
           style={{
@@ -33,7 +41,6 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
           {children}
         </div>
       </Content>
-
     </Layout>
   );
 };

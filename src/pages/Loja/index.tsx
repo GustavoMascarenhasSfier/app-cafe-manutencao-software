@@ -1,8 +1,18 @@
 import React, { useState } from "react";
+
 import PageTemplate from "../../components/Layout/PageTemplate";
+
 import CoffeeLogo from "../../assets/CoffeeLogo.svg";
-import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
+
+import {
+  Coffee,
+  Package,
+  ShoppingCart,
+  Timer,
+} from "phosphor-react";
+
 import { cafes } from "../../components/CardCafes/CatalogCoffee";
+
 import {
   Benefits,
   Card,
@@ -39,8 +49,20 @@ interface ItemCarrinho {
 }
 
 const Loja: React.FC = () => {
-  // Inicializa quantidades com dados do localStorage para manter estado sincronizado
   const [quantidades, setQuantidades] = useState<{ [id: number]: number }>({});
+
+  const [busca, setBusca] = useState("");
+
+  const normalizarTexto = (texto: string) => {
+    return texto
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  };
+
+  const cafesFiltrados = cafes.filter((cafe) =>
+    normalizarTexto(cafe.nome).includes(normalizarTexto(busca))
+  );
 
   function increment(id: number) {
     setQuantidades((state) => ({
@@ -58,14 +80,15 @@ const Loja: React.FC = () => {
 
   function handleAdicionar(cafe: Cafe) {
     const quantidade = quantidades[cafe.id] ?? 0;
+
     if (quantidade <= 0) return;
 
     const carrinhoAtual: ItemCarrinho[] = JSON.parse(
-      localStorage.getItem("carrinho") || "[]",
+      localStorage.getItem("carrinho") || "[]"
     );
 
     const index = carrinhoAtual.findIndex(
-      (item: ItemCarrinho) => item.cafe.id === cafe.id,
+      (item: ItemCarrinho) => item.cafe.id === cafe.id
     );
 
     if (index >= 0) {
@@ -75,58 +98,74 @@ const Loja: React.FC = () => {
     }
 
     localStorage.setItem("carrinho", JSON.stringify(carrinhoAtual));
-    setQuantidades((state) => ({ ...state, [cafe.id]: 0 }));
+
+    setQuantidades((state) => ({
+      ...state,
+      [cafe.id]: 0,
+    }));
   }
 
   return (
-    <PageTemplate>
+    <PageTemplate busca={busca} setBusca={setBusca}>
       <Container>
         <DescriptionContainer>
           <Description>
             <h2>Encontre o café perfeito para qualquer hora do dia</h2>
+
             <span>
-              Com o Coffee Delivery você recebe seu café onde estiver, a
-              qualquer hora
+              Com o Coffee Delivery você recebe seu café onde estiver,
+              a qualquer hora
             </span>
+
             <Benefits>
               <ul>
                 <li>
                   <IconContainer variant="yellowDark">
                     <ShoppingCart weight="fill" />
                   </IconContainer>
+
                   Compra simples e segura
                 </li>
+
                 <li>
                   <IconContainer variant="gray">
                     <Package weight="fill" />
                   </IconContainer>
+
                   Embalagem mantém o café intacto
                 </li>
+
                 <li>
                   <IconContainer variant="yellow">
                     <Timer weight="fill" />
                   </IconContainer>
+
                   Entrega rápida e rastreada
                 </li>
+
                 <li>
                   <IconContainer variant="brown">
                     <Coffee weight="fill" />
                   </IconContainer>
+
                   O café chega fresquinho até você
                 </li>
               </ul>
             </Benefits>
           </Description>
+
           <img src={CoffeeLogo} alt="Logo do Café" />
         </DescriptionContainer>
 
         <LojaContainer>
           <h1>Nossos Cafés</h1>
+
           <CardsContainer>
-            {cafes.map((cafe) => (
+            {cafesFiltrados.map((cafe) => (
               <Card key={cafe.id}>
                 <CardHeader>
                   <img src={cafe.imagem} alt={cafe.nome} />
+
                   <TagGroup>
                     {cafe.tags.map((tag, i) => (
                       <Tag key={i}>{tag}</Tag>
@@ -136,20 +175,29 @@ const Loja: React.FC = () => {
 
                 <CardContent>
                   <Title>{cafe.nome}</Title>
+
                   <Descricao>{cafe.descricao}</Descricao>
                 </CardContent>
 
                 <CardFooter>
                   <Price>
-                    <strong>{cafe.preco.toFixed(2)}</strong>
+                    <strong>
+                      {cafe.preco.toFixed(2)}
+                    </strong>
                   </Price>
 
                   <QuantityButton>
-                    <button onClick={() => decrement(cafe.id)}>-</button>
+                    <button onClick={() => decrement(cafe.id)}>
+                      -
+                    </button>
 
-                    <span>{quantidades[cafe.id] ?? 0}</span>
+                    <span>
+                      {quantidades[cafe.id] ?? 0}
+                    </span>
 
-                    <button onClick={() => increment(cafe.id)}>+</button>
+                    <button onClick={() => increment(cafe.id)}>
+                      +
+                    </button>
                   </QuantityButton>
 
                   <CartButton
