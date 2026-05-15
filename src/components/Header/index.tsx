@@ -1,13 +1,17 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SearchOutlined } from "@ant-design/icons";
 import { ShoppingCart } from "phosphor-react";
+
 import capuccino from "../../assets/Cafes/Capuccino.svg";
+
 import * as S from "./styles";
 
-const Header = () => {
-  const [busca, setBusca] = useState("");
+interface HeaderProps {
+  busca: string;
+  setBusca: React.Dispatch<React.SetStateAction<string>>;
+}
 
+const Header = ({ busca, setBusca }: HeaderProps) => {
   return (
     <S.PageHeader>
       <Link to="/" style={{ display: "flex", alignItems: "center" , gap:10 , textDecoration: "none"}}>
@@ -29,7 +33,10 @@ const Header = () => {
       <S.CartContainer>
         <S.CartLink as={Link} to="/checkout">
           <ShoppingCart size={22} />
-          <S.CartLabel>Carrinho</S.CartLabel>
+
+          <S.CartLabel>
+            Carrinho
+          </S.CartLabel>
         </S.CartLink>
       </S.CartContainer>
     </S.PageHeader>

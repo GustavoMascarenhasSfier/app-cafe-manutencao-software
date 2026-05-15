@@ -100,6 +100,58 @@ export const SearchButton = styled("button", {
   },
 });
 
+export const SearchWrapper = styled("div", {
+  position: "relative",
+  flex: 1,
+  maxWidth: "620px",
+  margin: "0 auto",
+});
+
+export const SearchResults = styled("div", {
+  position: "absolute",
+  top: "60px",
+  left: 0,
+  width: "100%",
+  background: "rgba(57, 53, 50, 0.98)",
+  border: "0.5px solid $gold300",
+  borderRadius: "16px",
+  overflow: "hidden",
+  zIndex: 1000,
+  backdropFilter: "blur(12px)",
+  boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
+});
+
+export const SearchItem = styled("div", {
+  display: "flex",
+  alignItems: "center",
+  gap: "12px",
+  padding: "14px 18px",
+  cursor: "pointer",
+  transition: "all 0.2s ease",
+
+  "&:hover": {
+    background: "rgba(201, 155, 78, 0.12)",
+  },
+
+  "&:not(:last-child)": {
+    borderBottom: "0.5px solid rgba(255,255,255,0.05)",
+  },
+});
+
+export const SearchItemTitle = styled("span", {
+  color: "$white",
+  fontSize: "14px",
+  fontWeight: 500,
+  fontFamily: "'DM Sans', sans-serif",
+});
+
+export const EmptySearch = styled("div", {
+  padding: "16px",
+  textAlign: "center",
+  color: "rgba(255,255,255,0.5)",
+  fontSize: "13px",
+});
+
 export const CartContainer = styled("div", {
   background: "transparent",
   marginLeft: "auto",
