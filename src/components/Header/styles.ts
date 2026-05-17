@@ -15,6 +15,19 @@ export const PageHeader = styled("div", {
   top: 0,
   zIndex: 999,
   fontFamily: "'DM Sans', sans-serif",
+
+  "@md": {
+    padding: "14px 20px",
+    height: "auto",
+    flexWrap: "wrap",
+    gap: "10px",
+  },
+
+  "@sm": {
+    padding: "12px 16px",
+    flexWrap: "wrap",
+    gap: "8px",
+  },
 });
 
 export const LogoPlaceholder = styled("div", {
@@ -45,6 +58,10 @@ export const LogoText = styled("h1", {
   span: {
     color: "$gold100",
   },
+
+  "@sm": {
+    fontSize: "14px",
+  },
 });
 
 export const SearchContainer = styled("div", {
@@ -62,6 +79,24 @@ export const SearchContainer = styled("div", {
 
   "&:focus-within": {
     borderColor: "$gold200",
+  },
+
+  "@lg": {
+    margin: "0 40px",
+  },
+
+  "@md": {
+    margin: "0",
+    order: 3,
+    flex: "1 1 100%",
+    width: "100%",
+  },
+
+  "@sm": {
+    margin: "0",
+    order: 3,
+    flex: "1 1 100%",
+    width: "100%",
   },
 });
 
@@ -156,6 +191,14 @@ export const EmptySearch = styled("div", {
 export const CartContainer = styled("div", {
   background: "transparent",
   marginLeft: "auto",
+
+  "@md": {
+    marginLeft: "auto",
+  },
+
+  "@sm": {
+    marginLeft: "auto",
+  },
 });
 
 export const CartLink = styled("a", {
