@@ -2,113 +2,158 @@
     --bege-100: #f8f4ef;
     --bege-150: #f3e9dd;
     --bege-200: #f0e0ce;
-    --lilas-100: #D2C0F3;
-    --lilas-300: #704fad;
-    --amarelo-250: #f3c300;
     --yellow-100: #f1e9c9;
     --yellow-300: #dbac2c;
     --yellow-500: #c47f17;
-
     --white: #fff;
     --brown-cafe: #6B4E2F;
     --brown: #3B2F2F;
-    --pretinho: #2D2D2D;
+}
+
+/* ==========================================
+   BASE â€” Mobile First
+   ========================================== */
+
+.ready-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .ready-container h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    font-weight: 800;
     color: var(--brown);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.ready-container > span {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--brown-cafe);
+    margin-bottom: 1.5rem;
 }
 
 .ready-content {
-    margin-top: 2rem;
     display: flex;
-    align-items: center;
-    gap: 5rem;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    align-items: flex-start;
 }
 
 .info-container {
-
-    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.25rem;
     border: 1px solid var(--yellow-500);
     border-radius: 0 1rem;
+    background: var(--bege-100);
 }
 
 .container-endereco,
 .timer-container,
 .type-pay-container {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
 }
 
-.container-endereco svg {
-    width: 2rem;
-    height: auto;
-    background-color: var(--brown-cafe);
-    border-radius: 50%;
-    padding: 0.5rem;
-    color: white;
+.type-pay-container {
+    margin-bottom: 0;
 }
 
-.timer-container svg {
-    width: 2rem;
-    height: auto;
-    background-color: var(--yellow-300);
-    border-radius: 50%;
-    padding: 0.5rem;
-    color: white;
-}
-
+.container-endereco svg,
+.timer-container svg,
 .type-pay-container svg {
     width: 2rem;
-    height: auto;
-    background-color: var(--brown);
-    color: white;
+    height: 2rem;
+    min-width: 2rem;
     border-radius: 50%;
-    padding: 0.5rem;
+    padding: 0.45rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.container-endereco svg { background-color: var(--brown-cafe); }
+.timer-container svg   { background-color: var(--yellow-300); }
+.type-pay-container svg{ background-color: var(--brown); }
+
+.container-endereco p,
+.timer-container p,
+.type-pay-container p {
+    font-size: 0.9rem;
+    color: var(--brown-cafe);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.container-endereco p strong,
+.timer-container p strong,
+.type-pay-container p strong {
+    color: var(--brown);
+    display: block;
+}
+
+.campo-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .campo-img img {
-    width: 400px;
+    width: 100%;
+    max-width: 280px;
     height: auto;
+    display: block;
 }
 
-@media (min-width: 460px) {
-
-     .ready-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+/* ==========================================
+   TABLET â€” >= 600px
+   ========================================== */
+@media (min-width: 600px) {
+    .ready-container {
+        padding: 2rem 1.5rem;
     }
 
-    .ready-content{
-        display: flex;
-        flex-direction: column;
+    .ready-container h1 {
+        font-size: 2rem;
     }
-}
 
-@media (min-width: 764px) {
-
-    .ready-content{
-        display: flex;
-        flex-direction: column;
+    .campo-img img {
+        max-width: 340px;
     }
 }
 
+/* ==========================================
+   DESKTOP â€” >= 1024px
+   ========================================== */
 @media (min-width: 1024px) {
-
-     .ready-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .ready-container {
+        padding: 2.5rem 2rem;
     }
 
-    .ready-content{
-        display: flex;
+    .ready-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .ready-content {
         flex-direction: row;
-      
+        align-items: center;
+        gap: 5rem;
+    }
+
+    .info-container {
+        min-width: 320px;
+        max-width: 400px;
+    }
+
+    .campo-img img {
+        max-width: 420px;
     }
 }

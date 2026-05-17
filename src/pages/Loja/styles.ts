@@ -21,6 +21,28 @@ export const DescriptionContainer = styled("div", {
       maxWidth: "100%",
     },
   },
+
+  "@md": {
+    flexDirection: "column",
+    gap: "1.5rem",
+    padding: "1.5rem",
+    textAlign: "center",
+
+    img: {
+      maxWidth: "80%",
+    },
+  },
+
+  "@sm": {
+    flexDirection: "column",
+    gap: "1rem",
+    padding: "1rem",
+    textAlign: "center",
+
+    img: {
+      maxWidth: "70%",
+    },
+  },
 });
 
 export const Description = styled("div", {
@@ -30,12 +52,39 @@ export const Description = styled("div", {
     fontSize: "3.2rem",
     fontWeight: 800,
     lineHeight: 1.3,
-    color: "$brown900", // brown
+    color: "$brown900",
   },
 
   span: {
     fontSize: "1.4rem",
-    color: "$brown500", // brown-cafe
+    color: "$brown500",
+  },
+
+  "@lg": {
+    h2: {
+      fontSize: "2.4rem",
+    },
+    span: {
+      fontSize: "1.2rem",
+    },
+  },
+
+  "@md": {
+    h2: {
+      fontSize: "2rem",
+    },
+    span: {
+      fontSize: "1.1rem",
+    },
+  },
+
+  "@sm": {
+    h2: {
+      fontSize: "1.6rem",
+    },
+    span: {
+      fontSize: "1rem",
+    },
   },
 });
 
@@ -56,6 +105,19 @@ export const Benefits = styled("div", {
     gap: "0.75rem",
     color: "$gray900",
     fontSize: "1rem",
+  },
+
+  "@sm": {
+    marginTop: "1.5rem",
+    ul: {
+      gridTemplateColumns: "1fr",
+      gap: "1rem",
+      marginTop: "1rem",
+    },
+    li: {
+      justifyContent: "center",
+      fontSize: "0.9rem",
+    },
   },
 });
 
@@ -92,6 +154,10 @@ export const LojaContainer = styled("div", {
   margiTop: "3rem",
   fontSize: "2rem",
   color: "$brown900",
+
+  "@sm": {
+    fontSize: "1.6rem",
+  },
 });
 
 export const CardsContainer = styled("div", {
@@ -101,6 +167,11 @@ export const CardsContainer = styled("div", {
   flexWrap: "wrap",
   gap: "2rem",
   marginTop: "1rem",
+
+  "@sm": {
+    gap: "3rem",
+    padding: "0 0.5rem",
+  },
 });
 
 export const Card = styled("div", {
@@ -126,7 +197,9 @@ export const Card = styled("div", {
   },
 
   "@sm": {
-    width: "17rem",
+    width: "calc(100vw - 4rem)",
+    maxWidth: "20rem",
+    marginTop: "1rem",
   },
 });
 
