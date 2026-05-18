@@ -1,7 +1,5 @@
 import React from "react";
 import PageTemplate from "../../components/Layout/PageTemplate";
-import "./styles.css"
-
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CheckoutForm } from "../../components/CheckoutForm/index";
@@ -11,9 +9,9 @@ import {
   type cycleFormData,
   newCycleFormValidationSchema,
   type ItemCarrinho,
-  type ItemStorage
+  type ItemStorage,
 } from "../../types/types";
-
+import { MainContainer } from "./styles";
 
 function carrinhoFromLocalStorage(): ItemCarrinho[] {
   try {
@@ -30,20 +28,18 @@ function carrinhoFromLocalStorage(): ItemCarrinho[] {
   }
 }
 
-
 function carrinhosDiferem(a: ItemCarrinho[], b: ItemCarrinho[]): boolean {
   if (a.length !== b.length) return true;
   for (let i = 0; i < a.length; i++) {
     const ai = a[i];
-    const bi = b.find(item => item.id === ai.id);
+    const bi = b.find((item) => item.id === ai.id);
     if (!bi || ai.quantidade !== bi.quantidade) return true;
   }
   return false;
 }
 
 const Checkout: React.FC = () => {
-
-    const methods = useForm<cycleFormData>({
+  const methods = useForm<cycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
     defaultValues: {
       cep: "",
@@ -59,10 +55,13 @@ const Checkout: React.FC = () => {
 
   const { watch, reset, setValue } = methods;
 
-  const [carrinho, setCarrinho] = useState<ItemCarrinho[]>(carrinhoFromLocalStorage);
+  const [carrinho, setCarrinho] = useState<ItemCarrinho[]>(
+    carrinhoFromLocalStorage,
+  );
   const pagamentoSelecionado = watch("pagamento");
   const cepDigitado = watch("cep");
-  const [dadosConfirmados, setDadosConfirmados] = useState<cycleFormData | null>(null);
+  const [dadosConfirmados, setDadosConfirmados] =
+    useState<cycleFormData | null>(null);
   const [pedidoConfirmado, setPedidoConfirmado] = useState(false);
 
   const carrinhoRef = useRef<ItemCarrinho[]>(carrinho);
@@ -79,17 +78,20 @@ const Checkout: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("carrinho", JSON.stringify(
-      carrinho.map(item => ({
-        cafe: {
-          id: item.id,
-          nome: item.nome,
-          imagem: item.imagem,
-          preco: item.preco,
-        },
-        quantidade: item.quantidade,
-      }))
-    ));
+    localStorage.setItem(
+      "carrinho",
+      JSON.stringify(
+        carrinho.map((item) => ({
+          cafe: {
+            id: item.id,
+            nome: item.nome,
+            imagem: item.imagem,
+            preco: item.preco,
+          },
+          quantidade: item.quantidade,
+        })),
+      ),
+    );
   }, [carrinho]);
 
   useEffect(() => {
@@ -109,28 +111,34 @@ const Checkout: React.FC = () => {
   }, [cepDigitado, setValue]);
 
   function aumentarQuantidade(id: number) {
-    setCarrinho(prev => prev.map(item => item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item));
+    setCarrinho((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item,
+      ),
+    );
   }
 
   function diminuirQuantidade(id: number) {
-  setCarrinho(prev =>
-    prev
-      .map(item =>
-        item.id === id && item.quantidade > 1
-          ? { ...item, quantidade: item.quantidade - 1 }
-          : item
-      )
-      .filter(item => item.quantidade > 0)
-  );
-}
-
+    setCarrinho((prev) =>
+      prev
+        .map((item) =>
+          item.id === id && item.quantidade > 1
+            ? { ...item, quantidade: item.quantidade - 1 }
+            : item,
+        )
+        .filter((item) => item.quantidade > 0),
+    );
+  }
 
   function removerItem(id: number) {
-    setCarrinho(prev => prev.filter(item => item.id !== id));
+    setCarrinho((prev) => prev.filter((item) => item.id !== id));
   }
 
   function calcularTotalItens() {
-    return carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0);
+    return carrinho.reduce(
+      (total, item) => total + item.preco * item.quantidade,
+      0,
+    );
   }
 
   function onConfirmarPedido(data: cycleFormData) {
@@ -148,23 +156,23 @@ const Checkout: React.FC = () => {
 
   return (
     <PageTemplate>
-    <div className="main-container">
-      {pedidoConfirmado && dadosConfirmados ? (
-        <CheckoutConfirm dados={dadosConfirmados} />
-      ) : (
-        <FormProvider {...methods}>
-          <CheckoutForm
-            carrinho={carrinho}
-            pagamentoSelecionado={pagamentoSelecionado}
-            aumentarQuantidade={aumentarQuantidade}
-            diminuirQuantidade={diminuirQuantidade}
-            removerItem={removerItem}
-            calcularTotalItens={calcularTotalItens}
-            onConfirmarPedido={onConfirmarPedido}
-          />
-        </FormProvider>
-      )}
-    </div>
+      <MainContainer>
+        {pedidoConfirmado && dadosConfirmados ? (
+          <CheckoutConfirm dados={dadosConfirmados} />
+        ) : (
+          <FormProvider {...methods}>
+            <CheckoutForm
+              carrinho={carrinho}
+              pagamentoSelecionado={pagamentoSelecionado}
+              aumentarQuantidade={aumentarQuantidade}
+              diminuirQuantidade={diminuirQuantidade}
+              removerItem={removerItem}
+              calcularTotalItens={calcularTotalItens}
+              onConfirmarPedido={onConfirmarPedido}
+            />
+          </FormProvider>
+        )}
+      </MainContainer>
     </PageTemplate>
   );
 };
