@@ -3,8 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { ShoppingCart } from "phosphor-react";
 
 import capuccino from "../../assets/Cafes/Capuccino.svg";
-
-import * as S from "./styles";
+import { PageHeader, LogoIcon, LogoText, SearchContainer, SearchInput, SearchButton, CartContainer, CartLink, CartLabel} from "./styles";
 
 interface HeaderProps {
   busca?: string;
@@ -13,7 +12,7 @@ interface HeaderProps {
 
 const Header = ({ busca, setBusca }: HeaderProps) => {
   return (
-    <S.PageHeader>
+    <PageHeader>
       <Link
         to="/"
         style={{
@@ -23,31 +22,31 @@ const Header = ({ busca, setBusca }: HeaderProps) => {
           textDecoration: "none",
         }}
       >
-        <S.LogoIcon src={capuccino} alt="Logo" />
-        <S.LogoText>
+        <LogoIcon src={capuccino} alt="Logo" />
+        <LogoText>
           Expresso <span>Delivery</span>
-        </S.LogoText>
+        </LogoText>
       </Link>
 
-      <S.SearchContainer>
-        <S.SearchInput
+      <SearchContainer>
+        <SearchInput
           placeholder="Buscar cafés, blends, origens..."
           value={busca}
           onChange={(e) => setBusca?.(e.target.value)}
         />
-        <S.SearchButton onClick={() => console.log(busca)}>
+        <SearchButton onClick={() => console.log(busca)}>
           <SearchOutlined />
-        </S.SearchButton>
-      </S.SearchContainer>
+        </SearchButton>
+      </SearchContainer>
 
-      <S.CartContainer>
-        <S.CartLink as={Link} to="/checkout">
+      <CartContainer>
+        <CartLink as={Link} to="/checkout">
           <ShoppingCart size={22} />
 
-          <S.CartLabel>Carrinho</S.CartLabel>
-        </S.CartLink>
-      </S.CartContainer>
-    </S.PageHeader>
+          <CartLabel>Carrinho</CartLabel>
+        </CartLink>
+      </CartContainer>
+    </PageHeader>
   );
 };
 
